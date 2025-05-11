@@ -1,0 +1,11 @@
+set_property IOSTANDARD LVCMOS33 [get_ports BANK35_L6P_LED_N]
+set_property IOSTANDARD LVCMOS33 [get_ports BANK35_L7P_LED_N]
+set_property IOSTANDARD LVCMOS33 [get_ports BANK35_L8P_LED_N]
+set_property IOSTANDARD LVCMOS33 [get_ports BANK35_L9P_LED_N]
+set_property PACKAGE_PIN F16 [get_ports BANK35_L6P_LED_N]
+set_property PACKAGE_PIN M19 [get_ports BANK35_L7P_LED_N]
+set_property PACKAGE_PIN M17 [get_ports BANK35_L8P_LED_N]
+set_property PACKAGE_PIN L19 [get_ports BANK35_L9P_LED_N]
+
+set_property PACKAGE_PIN K18 [get_ports CLOCK_OUT]
+set_property IOSTANDARD LVCMOS33 [get_ports CLOCK_OUT]
