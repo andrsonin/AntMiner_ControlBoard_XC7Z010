@@ -2,10 +2,10 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2.2 (win64) Build 4126759 Thu Feb  8 23:53:51 MST 2024
-// Date        : Sun May 11 18:08:44 2025
-// Host        : MatRs-ONEX running 64-bit major release  (build 9200)
+// Date        : Mon May 12 15:10:19 2025
+// Host        : DESKTOP-2ECG54D running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/Projects/Hobby/AntMiner_ControlBoard_XC7Z010/design/cpu_design/ip/cpu_design_proc_sys_reset_0_0/cpu_design_proc_sys_reset_0_0_stub.v
+//               c:/Projects/AntMiner_ControlBoard_XC7Z010/design/cpu_design/ip/cpu_design_proc_sys_reset_0_0/cpu_design_proc_sys_reset_0_0_stub.v
 // Design      : cpu_design_proc_sys_reset_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

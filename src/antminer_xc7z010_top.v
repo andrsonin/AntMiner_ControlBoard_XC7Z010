@@ -18,21 +18,21 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module top_antminer_xc7z010
+module antminer_xc7z010_top
 (
     //BOARD ID
-// (* chip_pin = "L14" *) input  wire Board_ID3              , //L14 - PULLUP
-// (* chip_pin = "L15" *) input  wire Board_ID2              , //L15 - PULLDOWN
-// (* chip_pin = "M14" *) input  wire Board_ID1              , //M14 - PULLDOWN
-// (* chip_pin = "M15" *) input  wire Board_ID0              , //M15 - PULLDOWN
+(* chip_pin = "L14" *) input  wire Board_ID3              , //L14 - PULLUP
+(* chip_pin = "L15" *) input  wire Board_ID2              , //L15 - PULLDOWN
+(* chip_pin = "M14" *) input  wire Board_ID1              , //M14 - PULLDOWN
+(* chip_pin = "M15" *) input  wire Board_ID0              , //M15 - PULLDOWN
 // (* chip_pin = "U13" *) input  wire PUDC_B                 , //U13 - 3V3(R190) or 0(R191)
     //SYSTEM
 //(* chip_pin = "R11" *) output wire DONE                   , //R11 - LED         - D1
 // (* chip_pin = "E7"  *) input  wire PS_CLK_33M33           , //E7  - 33.330MHz   - Y1
-// (* chip_pin = "K17" *) input  wire BANK35_L12P_MRCC_100M  , //K17 - 100MHz      - Y2
-// (* chip_pin = "N18" *) input  wire BANK34_L13P_MRCC_100M  , //N18 - 100MHz      - Y3
+(* chip_pin = "K17" *) input  wire BANK35_L12P_MRCC_100M  , //K17 - 100MHz      - Y2
+(* chip_pin = "N18" *) input  wire BANK34_L13P_MRCC_100M  , //N18 - 100MHz      - Y3
 // (* chip_pin = "C7"  *) inout  wire P_GOOD                 , //C7  - 3V3 2A      - U12
-//  (* chip_pin = "B10" *) input   wire PS_SRST                , //B10 - from BUTTON - S1
+//(* chip_pin = "B10" *) input  wire PS_SRST                , //B10 - from BUTTON - S1
 //(* chip_pin = "B14" *) inout  wire PS_MIO47_KEY_RESET     , //B14 - from BUTTON - S1
 //(* chip_pin = "B9"  *) inout  wire PS_MIO51_IP_GET        , //B9  - BUTTON 2V5  - S2
 //(* chip_pin = "B13" *) inout  wire PS_MIO50_CD_WP         , //B13 - PWRGD V2P5  - R177
@@ -160,7 +160,7 @@ module top_antminer_xc7z010
 (* chip_pin = "F1"  *) inout  wire DDR3_DM1               , //F1
 (* chip_pin = "T1"  *) inout  wire DDR3_DM2               , //T1
 (* chip_pin = "Y1"  *) inout  wire DDR3_DM3               , //Y1
-(* chip_pin = "B4"  *) inout  wire DDR3_RESET_N             //B4
+(* chip_pin = "B4"  *) inout  wire DDR3_RESET_N           , //B4
     //CONNECTORS
     //J1
 //(* chip_pin = "C16" *) inout  wire PS_MIO28_EN1           , //C16 - J1
@@ -214,33 +214,30 @@ module top_antminer_xc7z010
 //(* chip_pin = "A11" *) inout  wire PS_MIO36_EN9           , //A11 - J9
 // (* chip_pin = "R16" *) inout  wire BANK34_L19P_PLUG9      , //R16 - J9
 // (* chip_pin = "R17" *) inout  wire BANK34_L19N_RST9       , //R17 - J9
-// (* chip_pin = "T17" *) inout  wire BANK34_L20P_TXD9       , //T17 - J9
-// (* chip_pin = "R18" *) inout  wire BANK34_L20N_RXD9       , //R18 - J9
+(* chip_pin = "T17" *) output wire BANK34_L20P_TXD9       , //T17 - J9
+(* chip_pin = "R18" *) input  wire BANK34_L20N_RXD9       , //R18 - J9
     //I2C
-// (* chip_pin = "W18" *) inout  wire BANK34_L22P_SCL1       , //W18 - J1-J8
-// (* chip_pin = "W19" *) inout  wire BANK34_L22N_SDA1       , //W19 - J1-J8
+(* chip_pin = "W18" *) inout  wire BANK34_L22P_SCL1       , //W18 - J1-J8
+(* chip_pin = "W19" *) inout  wire BANK34_L22N_SDA1       , //W19 - J1-J8
     
-// (* chip_pin = "N17" *) inout  wire BANK34_L23P_SCL2       , //N17 - J9
-// (* chip_pin = "P18" *) inout  wire BANK34_L23N_SDA2       , //P18 - J9
+(* chip_pin = "N17" *) inout  wire BANK34_L23P_SCL2       , //N17 - J9
+(* chip_pin = "P18" *) inout  wire BANK34_L23N_SDA2       , //P18 - J9
     //FAN
-// (* chip_pin = "J18" *) output wire BANK35_L14P_FAN_PWM    , //J18 - FAN1 - FAN6
-// (* chip_pin = "F19" *) input  wire BANK35_L15P_FAN_SPEED1 , //F19 - FAN1
-// (* chip_pin = "F20" *) input  wire BANK35_L15N_FAN_SPEED2 , //F20 - FAN3
-// (* chip_pin = "G17" *) input  wire BANK35_L16P_FAN_SPEED3 , //G17 - FAN5
-// (* chip_pin = "G18" *) input  wire BANK35_L16N_FAN_SPEED4 , //G18 - FAN2
-// (* chip_pin = "J20" *) input  wire BANK35_L17P_FAN_SPEED5 , //J20 - FAN4
-// (* chip_pin = "H20" *) input  wire BANK35_L17N_FAN_SPEED6   //H20 - FAN6
+(* chip_pin = "J18" *) output wire BANK35_L14P_FAN_PWM    , //J18 - FAN1 - FAN6
+(* chip_pin = "F19" *) input  wire BANK35_L15P_FAN_SPEED1 , //F19 - FAN1
+(* chip_pin = "F20" *) input  wire BANK35_L15N_FAN_SPEED2 , //F20 - FAN3
+(* chip_pin = "G17" *) input  wire BANK35_L16P_FAN_SPEED3 , //G17 - FAN5
+(* chip_pin = "G18" *) input  wire BANK35_L16N_FAN_SPEED4 , //G18 - FAN2
+(* chip_pin = "J20" *) input  wire BANK35_L17P_FAN_SPEED5 , //J20 - FAN4
+(* chip_pin = "H20" *) input  wire BANK35_L17N_FAN_SPEED6   //H20 - FAN6
 );
-wire       en     ;
-wire       reset  ;
-wire       aresetn;
-wire [0:0] cpu_aresetn;
-wire       aclk   ;
 
-wire tick_1s;
+wire       aresetn  ;
+wire       tick_1s  ;
+wire       aclk_cpu ;
 
 // SYSTEM
-wire        aclk_cpu         ;
+wire [0:0]  cpu_aresetn      ;
 // DDR
 wire        FIXED_IO_ddr_vrn ;
 wire        FIXED_IO_ddr_vrp ;
@@ -249,58 +246,100 @@ wire        FIXED_IO_ps_clk  ;
 wire        FIXED_IO_ps_porb ;
 wire        FIXED_IO_ps_srstb;
 
-localparam LP_COUNTER_LENGTH_BIT = 2;
+wire i2c_0_sda_i;
+wire i2c_0_sda_o;
+wire i2c_0_sda_t;
+wire i2c_0_scl_i;
+wire i2c_0_scl_o;
+wire i2c_0_scl_t;
 
-wire [(LP_COUNTER_LENGTH_BIT *2) -1:0] w_counter;
+wire i2c_1_sda_i;
+wire i2c_1_sda_o;
+wire i2c_1_sda_t;
+wire i2c_1_scl_i;
+wire i2c_1_scl_o;
+wire i2c_1_scl_t;
 
-wire                             param_cycle_en  ;
-wire                             param_direction ;
+wire uart_0_txd ;
+wire uart_0_rxd ;
 
-wire [LP_COUNTER_LENGTH_BIT -1:0] bl_counter         ;
-wire                             bl_counter_full    ;
-wire                             bl_counter_empty   ;
-wire                             bl_en              ;
+assign aresetn = &cpu_aresetn;
 
-wire [LP_COUNTER_LENGTH_BIT -1:0] bh_counter         ;
-wire                             bh_counter_full    ;
-wire                             bh_counter_empty   ;
-wire                             bh_en              ;
+IOBUF #(
+    .DRIVE(12), // Specify the output drive strength
+    .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE" 
+    .IOSTANDARD("LVCMOS33"), // Specify the I/O standard
+    .SLEW("SLOW") // Specify the output slew rate
+ ) 
+ I2C_0_SDA_IOBUF_inst 
+ (
+    .O (i2c_0_sda_i     ), // Buffer output
+    .I (i2c_0_sda_0     ), // Buffer input
+    .T (i2c_0_sda_t     ), // 3-state enable input, high=input, low=output
+    .IO(BANK34_L22N_SDA1)  // Buffer inout port (connect directly to top-level port)
+ );
+ 
+IOBUF #(
+    .DRIVE(12), // Specify the output drive strength
+    .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE" 
+    .IOSTANDARD("LVCMOS33"), // Specify the I/O standard
+    .SLEW("SLOW") // Specify the output slew rate
+ ) 
+ I2C_0_SCL_IOBUF_inst 
+ (
+    .O (i2c_0_scl_i     ), // Buffer output
+    .I (i2c_0_scl_0     ), // Buffer input
+    .T (i2c_0_scl_t     ), // 3-state enable input, high=input, low=output
+    .IO(BANK34_L22P_SCL1)  // Buffer inout port (connect directly to top-level port)
+ );
 
-assign aclk    = aclk_cpu;
-assign reset   = 1'b0;
-assign en      = 1'b1;
+ IOBUF #(
+    .DRIVE(12), // Specify the output drive strength
+    .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE" 
+    .IOSTANDARD("LVCMOS33"), // Specify the I/O standard
+    .SLEW("SLOW") // Specify the output slew rate
+ ) 
+ I2C_1_SDA_IOBUF_inst 
+ (
+    .O (i2c_1_sda_i     ), // Buffer output
+    .I (i2c_1_sda_0     ), // Buffer input
+    .T (i2c_1_sda_t     ), // 3-state enable input, high=input, low=output
+    .IO(BANK34_L23N_SDA2)  // Buffer inout port (connect directly to top-level port)
+ );
+ 
+IOBUF #(
+    .DRIVE(12), // Specify the output drive strength
+    .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE" 
+    .IOSTANDARD("LVCMOS33"), // Specify the I/O standard
+    .SLEW("SLOW") // Specify the output slew rate
+ ) 
+ I2C_1_SCL_IOBUF_inst 
+ (
+    .O (i2c_1_scl_i     ), // Buffer output
+    .I (i2c_1_scl_0     ), // Buffer input
+    .T (i2c_1_scl_t     ), // 3-state enable input, high=input, low=output
+    .IO(BANK34_L23P_SCL2)  // Buffer inout port (connect directly to top-level port)
+ );
 
-assign CLOCK_OUT = aclk;
+ IBUF #(
+    .IBUF_LOW_PWR("TRUE"),  // Low power (TRUE) vs. performance (FALSE) setting for referenced I/O standards
+    .IOSTANDARD("LVCMOS33")  // Specify the input I/O standard
+ ) UART_0_RX_IBUF_inst (
+    .O(uart_0_rxd      ), // Buffer output
+    .I(BANK34_L20N_RXD9)  // Buffer input (connect directly to top-level port)
+ );
 
-assign aresetn = 1'b1 ; //&cpu_aresetn;
+ OBUF #(
+    .DRIVE(12),   // Specify the output drive strength
+    .IOSTANDARD("LVCMOS33"), // Specify the output I/O standard
+    .SLEW("SLOW") // Specify the output slew rate
+ ) UART_0_TX_OBUF_inst (
+    .O(BANK34_L20P_TXD9 ), // Buffer output (connect directly to top-level port)
+    .I(uart_0_txd       )  // Buffer input
+ );
 
-assign w_counter = {
-    bh_counter,
-    bl_counter 
-};
 
-wire bh_en_condition     ;
-wire bh_en_condition_up  ;
-wire bh_en_condition_down;
-
-assign param_cycle_en  = 1'b1;
-assign param_direction = 1'b1;
-
-assign bl_en = tick_1s;
-assign bh_en = (bh_en_condition) ? (tick_1s) : (1'b0);
-
-assign bh_en_condition      = bh_en_condition_down || bh_en_condition_up;
-assign bh_en_condition_up   = ((param_direction == 1'b1) & (bl_counter_full  == 1'b1)) ? (1'b1) : (1'b0);
-assign bh_en_condition_down = ((param_direction == 1'b0) & (bl_counter_empty == 1'b1)) ? (1'b1) : (1'b0);
-
-assign {
-    BANK35_L6P_LED_N,
-    BANK35_L7P_LED_N,
-    BANK35_L8P_LED_N,
-    BANK35_L9P_LED_N 
-} = {w_counter[3], tick_1s, trig_0, aclk};
-
-cpu_design
+design_2
 CPU_inst
 (
     .DDR_addr          ({
@@ -392,159 +431,84 @@ CPU_inst
     .FIXED_IO_ps_clk   (FIXED_IO_ps_clk            ),
     .FIXED_IO_ps_porb  (FIXED_IO_ps_porb           ),
     .FIXED_IO_ps_srstb (FIXED_IO_ps_srstb          ),
+
+    .i2c_0_sda_i       (i2c_0_sda_i                ),
+    .i2c_0_sda_o       (i2c_0_sda_o                ),
+    .i2c_0_sda_t       (i2c_0_sda_t                ),
+    .i2c_0_scl_i       (i2c_0_scl_i                ),
+    .i2c_0_scl_o       (i2c_0_scl_o                ),
+    .i2c_0_scl_t       (i2c_0_scl_t                ),
+
+    .i2c_1_sda_i       (i2c_1_sda_i                ),
+    .i2c_1_sda_o       (i2c_1_sda_o                ),
+    .i2c_1_sda_t       (i2c_1_sda_t                ),
+    .i2c_1_scl_i       (i2c_1_scl_i                ),
+    .i2c_1_scl_o       (i2c_1_scl_o                ),
+    .i2c_1_scl_t       (i2c_1_scl_t                ),
+
+    .uart_0_txd        (uart_0_txd                 ),
+    .uart_0_rxd        (uart_0_rxd                 ),
     
     .fclk_clk0         (aclk_cpu                   ),
     .aresetn           (cpu_aresetn                )
 );
 
-reg trig_0;
-initial begin
-    trig_0 = 1'b1;
-end
-
-always @(posedge aclk_cpu   ) begin
-    if(tick_1s)begin
-        trig_0 <= ~trig_0;
-    end
-    else begin
-        trig_0 <= trig_0;
-    end
-end
-
-tick_generator 
+tick_generator
+tick_generator_inst 
 (
     .tick_1s      (tick_1s    ),
-    .aclk_33mhz33 (aclk_cpu   ) 
+    .aclk         (aclk_cpu   ) 
 );
 
-counter
-#(
-    .P_COUNTER_LENGTH_BIT (LP_COUNTER_LENGTH_BIT)
-)
-bl_counter_inst
+antminer_xc7z010_wrapper
+wrapper_inst
 (
-    .param_cycle_en  (param_cycle_en    ),
-    .param_direction (param_direction   ),
+    .board_id (
+    {
+        Board_ID3,
+        Board_ID2,
+        Board_ID1,
+        Board_ID0 
+    }
+    ),
+    .power_good (P_GOOD    ),
 
-    .counter         (bl_counter        ),
-    .counter_full    (bl_counter_full   ),
-    .counter_empty   (bl_counter_empty  ),
-    
-    .en              (bl_en             ),
-    .reset           (reset             ),
-    .aresetn         (aresetn           ),
-    .aclk            (aclk              ) 
+    .led        (
+    {
+        BANK35_L6P_LED_N,
+        BANK35_L9P_LED_N,
+        BANK35_L7P_LED_N,
+        BANK35_L8P_LED_N 
+    }
+    ),
+    .fan_pwm     (BANK35_L14P_FAN_PWM ),
+    .fan_speed   (
+    {
+        BANK35_L17N_FAN_SPEED6,
+        BANK35_L17P_FAN_SPEED5,
+        BANK35_L16N_FAN_SPEED4,
+        BANK35_L16P_FAN_SPEED3,
+        BANK35_L15N_FAN_SPEED2,
+        BANK35_L15P_FAN_SPEED1 
+    }
+    ),
+    .tick_1s     (tick_1s   ),
+    .aresetn     (aresetn   ),
+    .clk_out     (CLOCK_OUT ),
+    .aclk_100mhz (
+    {
+        BANK35_L12P_MRCC_100M,
+        BANK34_L13P_MRCC_100M 
+    }
+    ),
+    .aclk_cpu(
+    {
+        1'b0,
+        1'b0,
+        1'b0,
+        aclk_cpu
+    }
+    )
 );
 
-counter
-#(
-    .P_COUNTER_LENGTH_BIT (LP_COUNTER_LENGTH_BIT)
-)
-bh_counter_inst
-(
-    .param_cycle_en  (param_cycle_en   ),
-    .param_direction (param_direction  ),
-
-    .counter         (bh_counter        ),
-    .counter_full    (bh_counter_full   ),
-    .counter_empty   (bh_counter_empty  ),
-    
-    .en              (bh_en             ),
-    .reset           (reset             ),
-    .aresetn         (aresetn           ),
-    .aclk            (aclk              ) 
-);
-
-endmodule
-
-
-module counter
-#(
-    parameter P_COUNTER_LENGTH_BIT = 4  // default == 4
-) 
-(
-    input  wire                             param_cycle_en  ,
-    input  wire                             param_direction , // 0 - minus, 1- plus
-
-    output reg  [P_COUNTER_LENGTH_BIT -1:0] counter         ,
-    output wire                             counter_full    ,
-    output wire                             counter_empty   ,
-    
-    input  wire                             en              ,
-    input  wire                             reset           ,
-    input  wire                             aresetn         ,
-    input  wire                             aclk             
-);
-
-initial begin
-    counter = 4'd0;
-end
-    
-assign counter_full  = (counter == {P_COUNTER_LENGTH_BIT{1'b1}}) ? (1'b1) : (1'b0);
-assign counter_empty = (counter == {P_COUNTER_LENGTH_BIT{1'b0}}) ? (1'b1) : (1'b0);
-
-always @(posedge aclk, negedge aresetn) begin :counter_inst 
-    if(!aresetn)begin
-        counter <= 4'h0;
-    end
-    else if(en)begin
-        if(reset)begin
-            counter <= 4'h0;
-        end
-        else begin
-            if(param_direction) begin
-                if(counter == {P_COUNTER_LENGTH_BIT{1'b1}})begin
-                    if(param_cycle_en)begin
-                        counter <= {P_COUNTER_LENGTH_BIT{1'b0}};
-                    end
-                    else begin
-                        counter <= counter;
-                    end
-                end 
-                else begin
-                    counter <= counter + 4'h1;
-                end
-            end
-            else begin
-                if(counter == {P_COUNTER_LENGTH_BIT{1'b0}})begin
-                    if(param_cycle_en)begin
-                        counter <= {P_COUNTER_LENGTH_BIT{1'b1}};
-                    end
-                    else begin
-                        counter <= counter;
-                    end
-                end 
-                else begin
-                    counter <= counter - 4'h1;
-                end
-            end
-        end
-    end
-    else begin
-        counter <= counter;
-    end
-end
-
-endmodule
-
-module tick_generator 
-(
-    output wire tick_1s,
-
-    input  wire aclk_33mhz33 //30ns
-);
-
-reg [25:00] counter;
-
-always @(posedge aclk_33mhz33) begin : counter_inst
-    if(counter == 'd50000)begin
-        counter <= 'd0;
-    end
-    else begin
-        counter <= counter + 'd1;
-    end
-end
-
-assign tick_1s = (counter == 'd50000) ? (1'b1) : (1'b0);
-    
 endmodule

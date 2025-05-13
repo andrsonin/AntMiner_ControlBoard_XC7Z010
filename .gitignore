@@ -5,3 +5,11 @@ project/*.ip_user_files
 project/*.sim
 project/*.runs
 project/*.srcs
+project/project_12.sdk/*
+app_component/*
+logs/*
+platform/*
+.vitisWorkspace.json
+.repo.yaml
+.peers.ini
+.lock
