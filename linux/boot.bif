@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]C:\Projects\Hobby\AntMiner_ControlBoard_XC7Z010\linux\FSBL.elf
+	C:\Projects\Hobby\AntMiner_ControlBoard_XC7Z010\linux\bitstream_AntMiner_ControlBoard_XC7Z010_1ver0.bit
+	C:\Projects\Hobby\AntMiner_ControlBoard_XC7Z010\linux\u-boot.elf
+}
