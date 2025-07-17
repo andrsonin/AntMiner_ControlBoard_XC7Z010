@@ -1,8 +1,5 @@
-project*/*.txt
-project*/*.cache
-project*/*.hw
-project*/*.ip_user_files
-project*/*.sim
-project*/*.runs
-project*/*.srcs
-project*/*.sdk
+#ignore
+project*/*
+
+#include
+!project*/*.xpr
